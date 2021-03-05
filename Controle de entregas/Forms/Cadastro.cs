@@ -30,7 +30,7 @@ namespace Controle_de_entregas.Forms
             Cliente.PagPrimeiraQuinzena = Pquinzena.Text;
             Cliente.PagSegundaQuinzena = SQuinzena.Text;
 
-            string connectionString = @"Server = (localdb)\MSSQLLocalDB; Database = entregas; Integrated Security = True"; ;
+            string connectionString = @"Server = (localdb)\MSSQLLocalDB; Database = entregas; Integrated Security = True";
             SqlConnection sqlConn = new SqlConnection(connectionString);
 
             sqlConn.Open();
