@@ -14,25 +14,25 @@ using System.Data.SqlClient;
 namespace Controle_de_entregas.Forms
 {
     public partial class Viagem : Form
-    {/*
+    {
         public Viagem()
         {
-            *InitializeComponent();
-              var itensdao = new ItensDAO();
-              var dados = itensdao.ListarItens();
-              ListaClientes.DisplayMember = "descricao";
-              ListaClientes.ValueMember = "codigo";
-              ListaClientes.DataSource = dados;
-              ListaClientes.SelectedIndex = -1;
-
-          }
+            InitializeComponent();
+            /* var itensdao = new ItensDAO();
+             var dados = itensdao.ListarItens();
+             ListaClientes.DisplayMember = "descricao";
+             ListaClientes.ValueMember = "codigo";
+             ListaClientes.DataSource = dados;
+             ListaClientes.SelectedIndex = -1;
             */
-            private void viagem_Load(object sender, EventArgs e)
+        }
+
+        private void viagem_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void SavViag_Click(object sender, EventArgs e)
+            private void SavViag_Click(object sender, EventArgs e)
         {
             var Viagem = new Entrega();
             Viagem.Cli = ListaClientes.Text;
@@ -47,15 +47,19 @@ namespace Controle_de_entregas.Forms
             string connectionString = "Server = (localdb)'\'MSSQLLocalDB; Database = Cliente; User Id = DESKTOP-G1STPAT\filyp; Password = xxxx;";
             SqlConnection sqlConn = new SqlConnection(connectionString);
 
+            sqlConn.Open();
+
             SqlCommand cmd = new SqlCommand("SELECT Nome_Cliente FROM Cliente", sqlConn);
 
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
-                ListaClientes.Items.Add(dr[0]);
+                ListaClientes.Items.Add(dr[0] + "-" + dr["CategoryName"]);
 
             }
+
+            sqlConn.Close();
         }
     }
 }
