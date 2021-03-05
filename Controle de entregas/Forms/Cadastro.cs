@@ -30,11 +30,13 @@ namespace Controle_de_entregas.Forms
             Cliente.PagPrimeiraQuinzena = Pquinzena.Text;
             Cliente.PagSegundaQuinzena = SQuinzena.Text;
 
-            string connectionString = "Server = (localdb)'\'MSSQLLocalDB; Database = Cliente; User Id = DESKTOP-G1STPAT\filyp; Password = xxxx;";
+            string connectionString = @"Server = (localdb)\MSSQLLocalDB; Database = entregas; Integrated Security = True"; ;
             SqlConnection sqlConn = new SqlConnection(connectionString);
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Cliente (Nome_Cliente,PrimeiraQuinzena,SegundaQuinzena)" + "VALUES('" + NomeCli.Text + "','" + Pquinzena.Text + "', '" + SQuinzena.Text + "')",sqlConn);
-            //SqlCommand.ExecuteNonQuery();
+            sqlConn.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Cliente (Nome_Cliente,Primeira_Quinzena,Segunda_Quinzena)" + "VALUES('" + NomeCli.Text + "','" + Pquinzena.Text + "', '" + SQuinzena.Text + "')",sqlConn);
+            cmd.ExecuteNonQuery();
 
             MessageBox.Show("Cliente Salvo!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
