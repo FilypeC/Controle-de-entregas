@@ -8,7 +8,7 @@ namespace Controle_de_entregas.Classes
 {
     public class Entrega
     {
-        public string Cli { get; set; }
+        public int Cli { get; set; }
         public Double Saida { get; set; }
         public Double Nota { get; set; }
         public int Quantidade { get; set; }

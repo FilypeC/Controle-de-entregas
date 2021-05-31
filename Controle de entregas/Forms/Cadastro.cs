@@ -30,18 +30,14 @@ namespace Controle_de_entregas.Forms
             Cliente.PagPrimeiraQuinzena = Pquinzena.Text;
             Cliente.PagSegundaQuinzena = SQuinzena.Text;
 
-            string connectionString = @"Server = (localdb)\MSSQLLocalDB; Database = entregas; Integrated Security = True";
-            SqlConnection sqlConn = new SqlConnection(connectionString);
+            var conn = new Conectar().GetConnection();
 
-            sqlConn.Open();
-
-            SqlCommand cmd = new SqlCommand("INSERT INTO Cliente (Nome_Cliente,Primeira_Quinzena,Segunda_Quinzena)" + "VALUES('" + NomeCli.Text + "','" + Pquinzena.Text + "', '" + SQuinzena.Text + "')",sqlConn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Cliente (Nome_Cliente,Primeira_Quinzena,Segunda_Quinzena)" + "VALUES('" + NomeCli.Text + "','" + Pquinzena.Text + "', '" + SQuinzena.Text + "')",conn);
             cmd.ExecuteNonQuery();
 
             MessageBox.Show("Cliente Salvo!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            sqlConn.Close();
-
+            conn.Close();
         }
 
         private void NomeCli_TextChanged(object sender, EventArgs e)

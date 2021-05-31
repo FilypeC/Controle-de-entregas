@@ -35,11 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.QuantEntregue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Dia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.ValorNota = new System.Windows.Forms.TextBox();
             this.SavViag = new System.Windows.Forms.Button();
+            this.Dia = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // ListaClientes
@@ -101,13 +101,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Dia";
             // 
-            // Dia
-            // 
-            this.Dia.Location = new System.Drawing.Point(688, 198);
-            this.Dia.Name = "Dia";
-            this.Dia.Size = new System.Drawing.Size(100, 20);
-            this.Dia.TabIndex = 7;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -143,16 +136,25 @@
             this.SavViag.UseVisualStyleBackColor = true;
             this.SavViag.Click += new System.EventHandler(this.SavViag_Click);
             // 
+            // Dia
+            // 
+            this.Dia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Dia.Location = new System.Drawing.Point(684, 198);
+            this.Dia.Name = "Dia";
+            this.Dia.Size = new System.Drawing.Size(94, 20);
+            this.Dia.TabIndex = 12;
+            this.Dia.ValueChanged += new System.EventHandler(this.Dia_ValueChanged);
+            // 
             // Viagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Dia);
             this.Controls.Add(this.SavViag);
             this.Controls.Add(this.ValorNota);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Dia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.QuantEntregue);
             this.Controls.Add(this.label3);
@@ -177,10 +179,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox QuantEntregue;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Dia;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ValorNota;
         private System.Windows.Forms.Button SavViag;
+        private System.Windows.Forms.DateTimePicker Dia;
     }
 }
