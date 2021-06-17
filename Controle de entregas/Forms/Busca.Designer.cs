@@ -30,11 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.NomeClienteBox = new System.Windows.Forms.ComboBox();
+            this.dataInicialDT = new System.Windows.Forms.DateTimePicker();
+            this.dataFinalDT = new System.Windows.Forms.DateTimePicker();
+            this.buscaBt = new System.Windows.Forms.Button();
+            this.visualizarBusc = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.visualizarBusc)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,14 +59,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Data inicial";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(323, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -72,13 +67,6 @@
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Data final";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(509, 125);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
             // 
             // label4
             // 
@@ -89,30 +77,70 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Infome os dados pedidos abaixo:";
             // 
-            // comboBox1
+            // NomeClienteBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.NomeClienteBox.FormattingEnabled = true;
+            this.NomeClienteBox.Location = new System.Drawing.Point(101, 124);
+            this.NomeClienteBox.Name = "NomeClienteBox";
+            this.NomeClienteBox.Size = new System.Drawing.Size(121, 21);
+            this.NomeClienteBox.TabIndex = 7;
+            this.NomeClienteBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dataInicialDT
+            // 
+            this.dataInicialDT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataInicialDT.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.dataInicialDT.Location = new System.Drawing.Point(324, 124);
+            this.dataInicialDT.Name = "dataInicialDT";
+            this.dataInicialDT.Size = new System.Drawing.Size(93, 20);
+            this.dataInicialDT.TabIndex = 8;
+            this.dataInicialDT.ValueChanged += new System.EventHandler(this.dataInicialDT_ValueChanged);
+            // 
+            // dataFinalDT
+            // 
+            this.dataFinalDT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataFinalDT.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.dataFinalDT.Location = new System.Drawing.Point(509, 125);
+            this.dataFinalDT.Name = "dataFinalDT";
+            this.dataFinalDT.Size = new System.Drawing.Size(93, 20);
+            this.dataFinalDT.TabIndex = 9;
+            // 
+            // buscaBt
+            // 
+            this.buscaBt.Location = new System.Drawing.Point(662, 126);
+            this.buscaBt.Name = "buscaBt";
+            this.buscaBt.Size = new System.Drawing.Size(75, 23);
+            this.buscaBt.TabIndex = 10;
+            this.buscaBt.Text = "Buscar!";
+            this.buscaBt.UseVisualStyleBackColor = true;
+            this.buscaBt.Click += new System.EventHandler(this.buscaBt_Click);
+            // 
+            // visualizarBusc
+            // 
+            this.visualizarBusc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visualizarBusc.Location = new System.Drawing.Point(278, 197);
+            this.visualizarBusc.Name = "visualizarBusc";
+            this.visualizarBusc.Size = new System.Drawing.Size(240, 150);
+            this.visualizarBusc.TabIndex = 11;
             // 
             // Busca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.visualizarBusc);
+            this.Controls.Add(this.buscaBt);
+            this.Controls.Add(this.dataFinalDT);
+            this.Controls.Add(this.dataInicialDT);
+            this.Controls.Add(this.NomeClienteBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Busca";
             this.Text = "Busca de ganhos";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.visualizarBusc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,10 +150,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox NomeClienteBox;
+        private System.Windows.Forms.DateTimePicker dataInicialDT;
+        private System.Windows.Forms.DateTimePicker dataFinalDT;
+        private System.Windows.Forms.Button buscaBt;
+        private System.Windows.Forms.DataGridView visualizarBusc;
     }
 }

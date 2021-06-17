@@ -18,8 +18,7 @@ namespace Controle_de_entregas.Forms
 
         private void VerCliente_Click(object sender, EventArgs e)
         {
-            var busca = new Busca();
-            busca.Show();
+           
         }
 
         private void AddViagem_Click(object sender, EventArgs e)
@@ -27,6 +26,18 @@ namespace Controle_de_entregas.Forms
             var adc = new Viagem();
             adc.Show();
 
+        }
+
+        private void VeriPag_Click(object sender, EventArgs e)
+        {
+            var busca = new Busca();
+            busca.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var Receita = new Receitas();
+            Receita.Show();
         }
     }
 }
